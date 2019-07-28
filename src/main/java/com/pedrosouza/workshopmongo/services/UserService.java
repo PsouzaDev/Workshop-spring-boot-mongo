@@ -1,4 +1,4 @@
-package com.pedrosouza.workshopmongo;
+package com.pedrosouza.workshopmongo.services;
 
 import java.util.List;
 

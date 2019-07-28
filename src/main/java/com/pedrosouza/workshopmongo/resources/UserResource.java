@@ -2,8 +2,8 @@ package com.pedrosouza.workshopmongo.resources;
 
 import java.util.List;
 
-import com.pedrosouza.workshopmongo.UserService;
 import com.pedrosouza.workshopmongo.domain.User;
+import com.pedrosouza.workshopmongo.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
