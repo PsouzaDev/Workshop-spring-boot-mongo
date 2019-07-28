@@ -1,8 +1,10 @@
 package com.pedrosouza.workshopmongo.resources;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.pedrosouza.workshopmongo.domain.User;
+import com.pedrosouza.workshopmongo.dto.UserDto;
 import com.pedrosouza.workshopmongo.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,10 @@ public class UserResource {
     private UserService service;
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll() {
+    public ResponseEntity<List<UserDto>> findAll() {
        
         List<User> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+        List<UserDto> listDto = list.stream().map(user -> new UserDto(user)).collect(Collectors.toList());
+        return ResponseEntity.ok().body(listDto);
     }
 }
