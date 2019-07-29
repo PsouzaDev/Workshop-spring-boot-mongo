@@ -3,6 +3,7 @@ package com.pedrosouza.workshopmongo.services;
 import java.util.List;
 
 import com.pedrosouza.workshopmongo.domain.User;
+import com.pedrosouza.workshopmongo.dto.UserDto;
 import com.pedrosouza.workshopmongo.repository.UserRepository;
 import com.pedrosouza.workshopmongo.services.exception.ObjectNotFoundException;
 
@@ -27,5 +28,13 @@ public class UserService {
         if (user == null)
             throw new ObjectNotFoundException("Objeto não encontrado");
         return user;
+    }
+
+    public User insert(User obj) {
+        return repo.insert(obj);
+    }
+
+    public User fromDTO(UserDto objDto) {
+        return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
     }
 }
